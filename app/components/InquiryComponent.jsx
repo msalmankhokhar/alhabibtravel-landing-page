@@ -4,13 +4,13 @@ import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { FaTimes } from "react-icons/fa";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const InquiryComponent = ({ closePopup }) => {
   const form = useRef();
   const [isSending, setIsSending] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
-  const router = useRouter();
+  const params = useSearchParams();
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -26,12 +26,11 @@ const InquiryComponent = ({ closePopup }) => {
       // )
 
       // using backend API to send mail
-      const submitBtn = document.getElementById('landing-form-submit-btn')
       const formData = new FormData(form.current)
       const data = Object.fromEntries(formData.entries());
 
       // sending request to backend using fetch
-      await fetch('http://localhost/api/landing_form', {
+      await fetch('https://www.alhabibtravel.co.uk/api/landing_form', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -141,7 +140,7 @@ const InquiryComponent = ({ closePopup }) => {
             </div>
 
             <div className="mb-4">
-              <input type="checkbox" id="number" name="from_checked" required />{" "}
+              <input type="checkbox" id="number" name="privacy_policy_checked" required />{" "}
               I accecpt the{" "}
               <span className="text-[#d4A10F]">
                 {" "}
@@ -150,6 +149,13 @@ const InquiryComponent = ({ closePopup }) => {
                 </a>{" "}
               </span>
             </div>
+
+            {/* Hidden inputs */}
+            <input type="hidden" name="utm_source" value={params.get('utm_source')} />
+            <input type="hidden" name="utm_medium" value={params.get('utm_medium')} />
+            <input type="hidden" name="utm_campaign" value={params.get('utm_campaign')} />
+            <input type="hidden" name="utm_term" value={params.get('utm_term')} />
+            <input type="hidden" name="gclid" value={params.get('gclid')} />
 
             <button
               id="landing-form-submit-btn"
