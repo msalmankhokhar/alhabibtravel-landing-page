@@ -12,6 +12,7 @@ import VideoTestimonial from "./VideoTestimonial";
 import Faqs from "./Faqs";
 import PriceCard from "./PriceCard";
 import InquiryComponent from "./InquiryComponent";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 function HomePage() {
   const [showPopup, setShowPopup] = useState(false);
@@ -53,6 +54,12 @@ function HomePage() {
 
   return (
     <>
+      <FloatingWhatsApp 
+      phoneNumber="+44203 504 2344"
+      accountName="Al Habib Travel"
+      avatar="/img/logos/favicon.png"
+      buttonStyle={{width: '45px', height: '45px'}}
+    />
       <div className="fixed top-0 z-10 w-full">
         <Navbar showPopup={showPopup} setShowPopup={setShowPopup} />
       </div>

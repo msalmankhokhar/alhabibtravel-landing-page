@@ -25,7 +25,7 @@ function Navbar({ showPopup, setShowPopup }) {
 
   return (
     <>
-      <nav className="w-full py-4 flex  justify-between relative items-center bg-slate-100 bg-gradient-to-  from-[#0c091d] via-[#0e5243] to-[#093833]  shadow-xl  px-10 md:px-32">
+      <nav className="w-full py-1 flex  justify-between relative items-center bg-slate-100 bg-gradient-to-  from-[#0c091d] via-[#0e5243] to-[#093833]  shadow-xl  px-10 md:px-32">
         {/* Toggle Buttons */}
         <div className="md:hidden ">
           {toggle ? (

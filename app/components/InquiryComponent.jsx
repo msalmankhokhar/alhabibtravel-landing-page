@@ -14,17 +14,31 @@ const InquiryComponent = ({ closePopup }) => {
 
   const sendEmail = async (e) => {
     e.preventDefault();
+    console.log("submitted");
     setIsSending(true);
 
-    setStatusMessage("");
-
     try {
-      await emailjs.sendForm(
-        "service_vpxmfgq",  
-        "template_rbmwu2c", //habib template key template_aapxyg9 serviceKey:service_3w1brq3
-        form.current,
-        "g9xwc_LT3hYleKIQm"
-      );
+      // await emailjs.sendForm(
+      //   "service_vpxmfgq",  
+      //   "template_rbmwu2c", //habib template key template_aapxyg9 serviceKey:service_3w1brq3
+      //   form.current,
+      //   "g9xwc_LT3hYleKIQm"
+      // )
+
+      // using backend API to send mail
+      const submitBtn = document.getElementById('landing-form-submit-btn')
+      const formData = new FormData(form.current)
+      const data = Object.fromEntries(formData.entries());
+
+      // sending request to backend using fetch
+      await fetch('http://localhost/api/landing_form', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            Accept: 'application/json'
+        }
+      })
+
       localStorage.setItem("inquiryFilled", "true");
       setStatusMessage("Your inquiry has been sent successfully!");
       form.current.reset();
@@ -35,6 +49,7 @@ const InquiryComponent = ({ closePopup }) => {
       }, 1500);
     } catch (error) {
       setStatusMessage("Your inquiry has been sent...");
+      console.log(error);
     } finally {
       setIsSending(false);
     }
@@ -42,8 +57,8 @@ const InquiryComponent = ({ closePopup }) => {
 
   return (
     <>
-      <div className="  ">
-        <div className="bg-white   p-6 md:rounded-lg max-w-sm md:max-w-lg md:border-t-8 md:border-l-8 shadow-2xl mx-auto relative  md:h-auto md:pb-10 md:top-7">
+      <div className="">
+        <div className="bg-white p-6 md:rounded-lg max-w-sm md:max-w-lg md:border-t-8 md:border-l-8 shadow-2xl mx-auto relative md:h-auto md:pb-10 md:top-7">
           <button
             onClick={() => {
               closePopup; // Close the popup
@@ -66,7 +81,7 @@ const InquiryComponent = ({ closePopup }) => {
               We will contact you via WhatsApp or Email under a minutes.
             </p>
           </div>
-          <form ref={form} onSubmit={sendEmail}>
+          <form ref={form} onSubmit={sendEmail} >
             <div className="mb-4">
               <label htmlFor="name" className="block text-sm font-medium">
                 Passenger Name
@@ -74,7 +89,7 @@ const InquiryComponent = ({ closePopup }) => {
               <input
                 type="text"
                 id="name"
-                name="from_name"
+                name="name"
                 className="w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-[#d4A10F]"
                 placeholder="Enter your name"
                 required
@@ -88,7 +103,7 @@ const InquiryComponent = ({ closePopup }) => {
               <input
                 type="tel"
                 id="mobile"
-                name="from_phone"
+                name="phone"
                 className="w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-[#d4A10F]"
                 placeholder="Enter your ph:number +44"
                 required
@@ -102,7 +117,7 @@ const InquiryComponent = ({ closePopup }) => {
               <input
                 type="email"
                 id="email"
-                name="from_email"
+                name="email"
                 className="w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-[#d4A10F]"
                 placeholder="Enter your email"
                 required
@@ -114,9 +129,11 @@ const InquiryComponent = ({ closePopup }) => {
                 Total number of Passengers
               </label>
               <input
-                type="text"
+                min={1}
+                max={10}
+                type="number"
                 id="number"
-                name="from_email"
+                name="passengers"
                 className="w-full mt-1 p-2 border rounded-md "
                 placeholder="We are total "
                 required
@@ -128,13 +145,14 @@ const InquiryComponent = ({ closePopup }) => {
               I accecpt the{" "}
               <span className="text-[#d4A10F]">
                 {" "}
-                <a href="https://www.alhabibtravel.co.uk/privacy-policy">
+                <a target="_blank" href="https://www.alhabibtravel.co.uk/privacy-policy">
                   privacy policy{" "}
                 </a>{" "}
               </span>
             </div>
 
             <button
+              id="landing-form-submit-btn"
               type="submit"
               disabled={isSending}
               className="w-full bg-[#00454A] text-white py-2 rounded-md hover:bg-[#d4A10F] transition"

@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+// import { FloatingWhatsApp } from "react-floating-whatsapp";
 import "./globals.css"; 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -18,11 +19,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-       
+      >      
         {children}
       </body>
     </html>

@@ -89,11 +89,14 @@ const Footer = () => {
           Fares are only guaranteed until ticketed. Offers may be withdrawn
           without any prior notice
           <br />
-          <a href="/https://www.alhabibtravel.co.uk/privacy-policy" className="text-[#D4A10F] hover:text-white">
+          <a
+            target="_blank"
+            href="https://www.alhabibtravel.co.uk/privacy-policy" className="text-[#D4A10F] hover:text-white">
             Disclaimer
           </a>{" "}
           |
           <a
+            target="_blank"
             href="https://www.alhabibtravel.co.uk/privacy-policy"
             className=" text-[#D4A10F] hover:text-white"
           >
