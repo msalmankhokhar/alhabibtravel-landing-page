@@ -1,16 +1,32 @@
-"use client";
+// "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, Suspense } from "react";
 import emailjs from "@emailjs/browser";
 import { FaTimes } from "react-icons/fa";
 import Image from "next/image";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/compat/router";
+import { useEffect } from "react";
 
-const InquiryComponent = ({ closePopup }) => {
+const Component = ({ closePopup }) => {
   const form = useRef();
   const [isSending, setIsSending] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
-  const params = useSearchParams();
+  // const router = useRouter();
+  const [utm_source, setutm_source] = useState("")
+  const [utm_medium, setutm_medium] = useState("")
+  const [utm_campaign, setutm_campaign] = useState("")
+  const [utm_term, setutm_term] = useState("")
+  const [gclid, setgclid] = useState("")
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    console.log(params.get('utm_source'));
+    setutm_source(params.get('utm_source'))
+    setutm_campaign(params.get('utm_campaign'))
+    setutm_medium(params.get('utm_medium'))
+    setutm_term(params.get('utm_term'))
+    setgclid(params.get('gclid'))
+  }, [])
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -28,7 +44,8 @@ const InquiryComponent = ({ closePopup }) => {
       // using backend API to send mail
       const formData = new FormData(form.current)
       const data = Object.fromEntries(formData.entries());
-
+      console.log(data);
+      
       // sending request to backend using fetch
       await fetch('https://www.alhabibtravel.co.uk/api/landing_form', {
         method: 'POST',
@@ -151,11 +168,11 @@ const InquiryComponent = ({ closePopup }) => {
             </div>
 
             {/* Hidden inputs */}
-            <input type="hidden" name="utm_source" value={params.get('utm_source')} />
-            <input type="hidden" name="utm_medium" value={params.get('utm_medium')} />
-            <input type="hidden" name="utm_campaign" value={params.get('utm_campaign')} />
-            <input type="hidden" name="utm_term" value={params.get('utm_term')} />
-            <input type="hidden" name="gclid" value={params.get('gclid')} />
+            <input type="hidden" name="utm_source" value={utm_source} />
+            <input type="hidden" name="utm_medium" value={utm_medium} />
+            <input type="hidden" name="utm_campaign" value={utm_campaign} />
+            <input type="hidden" name="utm_term" value={utm_term} />
+            <input type="hidden" name="gclid" value={gclid} />
 
             <button
               id="landing-form-submit-btn"
@@ -175,4 +192,12 @@ const InquiryComponent = ({ closePopup }) => {
   );
 };
 
-export default InquiryComponent;
+export default Component
+
+// export default function InquiryComponent(){
+//   (
+//     <Suspense fallback={<div>Loading...</div>}>
+//       <Component />
+//     </Suspense>
+//   );
+// }
