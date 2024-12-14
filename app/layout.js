@@ -1,11 +1,13 @@
 import localFont from "next/font/local";
-// import { FloatingWhatsApp } from "react-floating-whatsapp";
-import "./globals.css"; 
+import "./globals.css";
+import { GoogleTagManager } from "@next/third-parties/google";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -19,11 +21,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    
     <html lang="en">
+      <head>
+        <title>Umrah Booking | Al Habib Travel</title>
+        <meta name="description" content="Welcome to Al Habib Travel UK, where journeys are tailored to perfection. Serving individuals and families from across the UK, we ensure that every Hajj or Umrah pilgrimage is designed with your unique needs in mind. From budget-friendly options to premium packages, our commitment to excellence guarantees an unparalleled experience for every traveler." />
+
+        {/* Add GTM Component */}
+        <GoogleTagManager gtmId="GTM-WWRL452Q" /> 
+        
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >      
+      >
         {children}
       </body>
     </html>

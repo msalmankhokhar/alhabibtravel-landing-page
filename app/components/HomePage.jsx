@@ -59,6 +59,7 @@ function HomePage() {
       accountName="Al Habib Travel"
       avatar="/img/logos/favicon.png"
       buttonStyle={{width: '45px', height: '45px'}}
+      statusMessage="Typically replies within 1 minute"
     />
       <div className="fixed top-0 z-10 w-full">
         <Navbar showPopup={showPopup} setShowPopup={setShowPopup} />
