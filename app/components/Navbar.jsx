@@ -47,14 +47,22 @@ function Navbar({ showPopup, setShowPopup }) {
 
         {/* Logo */}
         <div className="cursor-pointer">
-          <Image
+          {/* <Image
             onClick={gotoHomePage}
             src="/logo.webp"
             alt="Logo"
             width={80} // Adjust width as needed
             height={1200} // Adjust height as needed
             className="object-contain"
-          />
+          /> */}
+          <Image
+              src="/logo.webp"
+              alt="Logo"
+              width={64}
+              height={64}
+              className="mx-auto my-2"
+            />
+
         </div>
 
         {/* Contact Button for Larger Screens */}
