@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 import React, { useState, useRef, Suspense } from "react";
 import emailjs from "@emailjs/browser";
@@ -45,7 +45,7 @@ const Component = ({ closePopup }) => {
       const formData = new FormData(form.current)
       const data = Object.fromEntries(formData.entries());
       console.log(data);
-      
+
       // sending request to backend using fetch
       await fetch('https://www.alhabibtravel.co.uk/api/landing_form', {
         method: 'POST',
