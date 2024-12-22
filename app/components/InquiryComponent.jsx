@@ -44,7 +44,7 @@ const Component = ({ closePopup }) => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
 
-  }, [])
+  }, [isSending])
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -66,7 +66,7 @@ const Component = ({ closePopup }) => {
 
       // sending request to backend using fetch
       // await fetch('http://localhost/api/landing_form', {
-      await fetch('http://www.alhabibtravel.co.uk/api/landing_form', {
+      await fetch('https://www.alhabibtravel.co.uk/api/landing_form', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
