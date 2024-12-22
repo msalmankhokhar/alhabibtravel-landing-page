@@ -44,7 +44,7 @@ const Component = ({ closePopup }) => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
 
-  }, [isSending])
+  }, [])
 
   const sendEmail = async (e) => {
     e.preventDefault();
