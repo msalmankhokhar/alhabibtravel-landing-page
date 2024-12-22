@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 const Component = ({ closePopup }) => {
   const form = useRef();
-  const [isSending, setIsSending] = useState(true);
+  const [isSending, setIsSending] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
   // const router = useRouter();
   const [utm_source, setutm_source] = useState("")
