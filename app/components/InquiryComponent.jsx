@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 const Component = ({ closePopup }) => {
   const form = useRef();
-  const [isSending, setIsSending] = useState(false);
+  const [isSending, setIsSending] = useState(true);
   const [statusMessage, setStatusMessage] = useState("");
   // const router = useRouter();
   const [utm_source, setutm_source] = useState("")
@@ -20,13 +20,31 @@ const Component = ({ closePopup }) => {
   const [gclid, setgclid] = useState("")
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    console.log(params.get('utm_source'));
+    // console.log(params.get('utm_source'));
     setutm_source(params.get('utm_source'))
     setutm_campaign(params.get('utm_campaign'))
     setutm_medium(params.get('utm_medium'))
     setutm_term(params.get('utm_term'))
     setgclid(params.get('gclid'))
-  }, [])
+
+    const handleBeforeUnload = (event) => {
+      if (isSending) {
+        // Prompt the user if the request is being sent
+        const message = 'Your query is being processed. Are you sure you want to leave?';
+        event.returnValue = message; // Standard for most browsers
+        return message; // For some browsers
+      }
+    };
+
+    // Add the event listener when the component is mounted
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+
+  }, [isSending])
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -44,10 +62,11 @@ const Component = ({ closePopup }) => {
       // using backend API to send mail
       const formData = new FormData(form.current)
       const data = Object.fromEntries(formData.entries());
-      console.log(data);
+      // console.log(data);
 
       // sending request to backend using fetch
-      await fetch('https://www.alhabibtravel.co.uk/api/landing_form', {
+      // await fetch('http://localhost/api/landing_form', {
+      await fetch('http://www.alhabibtravel.co.uk/api/landing_form', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
