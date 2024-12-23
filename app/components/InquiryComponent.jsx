@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/compat/router";
 import { useEffect } from "react";
+import { Bars, ColorRing, TailSpin, ThreeDots } from "react-loader-spinner";
 
 const Component = ({ closePopup }) => {
   const form = useRef();
@@ -69,7 +70,7 @@ const Component = ({ closePopup }) => {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
-            Accept: 'application/json'
+          Accept: 'application/json'
         }
       })
 
@@ -79,7 +80,7 @@ const Component = ({ closePopup }) => {
 
       // setTimeout(() => {
       //   window.location.reload();
-        
+
       // }, 1500);
     } catch (error) {
       setStatusMessage("Your inquiry has been sent...");
@@ -91,6 +92,27 @@ const Component = ({ closePopup }) => {
 
   return (
     <>
+
+    {/* 
+    brand colors: 
+    yellow: #D4A10F
+    teal:   #00454A
+    */}
+
+    {
+      isSending && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
+          <Bars
+            visible={visible}
+            height="40"
+            width="40"
+            ariaLabel="color-ring-loading"
+            color="#00454A"
+          />
+        </div>
+      )
+    }
+
       <div className="">
         <div className="bg-white p-6 md:rounded-lg max-w-sm md:max-w-lg md:border-t-8 md:border-l-8 shadow-2xl mx-auto relative md:h-auto md:pb-10 md:top-7">
           <button
