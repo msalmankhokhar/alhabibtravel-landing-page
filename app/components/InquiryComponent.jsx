@@ -77,10 +77,10 @@ const Component = ({ closePopup }) => {
       setStatusMessage("Your inquiry has been sent successfully!");
       form.current.reset();
 
-      setTimeout(() => {
-        window.location.reload();
+      // setTimeout(() => {
+      //   window.location.reload();
         
-      }, 1500);
+      // }, 1500);
     } catch (error) {
       setStatusMessage("Your inquiry has been sent...");
       console.log(error);
