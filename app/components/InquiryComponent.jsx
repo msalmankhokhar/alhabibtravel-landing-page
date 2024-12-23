@@ -103,7 +103,7 @@ const Component = ({ closePopup }) => {
       isSending && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
           <Bars
-            visible={visible}
+            visible={true}
             height="40"
             width="40"
             ariaLabel="color-ring-loading"
