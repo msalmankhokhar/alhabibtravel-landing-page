@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef, Suspense } from "react";
-import emailjs from "@emailjs/browser";
 import { FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
@@ -62,7 +61,7 @@ const Component = ({ closePopup }) => {
       // using backend API to send mail
       const formData = new FormData(form.current)
       const data = Object.fromEntries(formData.entries());
-      // console.log(data);
+      console.log(data);
 
       // sending request to backend using fetch
       // await fetch('http://localhost/api/landing_form', {
