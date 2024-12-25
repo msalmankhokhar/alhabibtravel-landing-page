@@ -19,6 +19,19 @@ const Component = ({ closePopup }) => {
   const [utm_term, setutm_term] = useState("")
   const [gclid, setgclid] = useState("")
   useEffect(() => {
+
+    // Log all inputs within the form when the page loads
+    if (form.current) {
+      const inputs = form.current.querySelectorAll('input:not([type="hidden"])');
+      inputs.forEach((input) => {
+        const idSelector = input.id ? `#${input.id}` : "(no id)";
+        const cssSelector = input.name
+          ? `input[name="${input.name}"]`
+          : "(no name)";
+        console.log(`CSS Selector for ${input.name}: ${idSelector}`);
+      });
+    }
+
     const params = new URLSearchParams(window.location.search);
     // console.log(params.get('utm_source'));
     setutm_source(params.get('utm_source'))
@@ -43,6 +56,8 @@ const Component = ({ closePopup }) => {
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
+
+
 
   }, [isSending])
 
@@ -139,12 +154,12 @@ const Component = ({ closePopup }) => {
           </div>
           <form ref={form} onSubmit={sendEmail} >
             <div className="mb-4">
-              <label htmlFor="name" className="block text-sm font-medium">
+              <label htmlFor="name-input" className="block text-sm font-medium">
                 Passenger Name
               </label>
               <input
                 type="text"
-                id="name"
+                id="name-input"
                 name="name"
                 className="w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-[#d4A10F]"
                 placeholder="Enter your name"
@@ -153,12 +168,12 @@ const Component = ({ closePopup }) => {
             </div>
 
             <div className="mb-4">
-              <label htmlFor="mobile" className="block text-sm font-medium">
+              <label htmlFor="mobile-input" className="block text-sm font-medium">
                 Contact Number
               </label>
               <input
                 type="tel"
-                id="mobile"
+                id="mobile-input"
                 name="phone"
                 className="w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-[#d4A10F]"
                 placeholder="Enter your ph:number +44"
@@ -167,12 +182,12 @@ const Component = ({ closePopup }) => {
             </div>
 
             <div className="mb-4">
-              <label htmlFor="email" className="block text-sm font-medium">
+              <label htmlFor="email-input" className="block text-sm font-medium">
                 Email Address
               </label>
               <input
                 type="email"
-                id="email"
+                id="email-input"
                 name="email"
                 className="w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-[#d4A10F]"
                 placeholder="Enter your email"
@@ -181,14 +196,14 @@ const Component = ({ closePopup }) => {
             </div>
 
             <div className="mb-4">
-              <label htmlFor="email" className="block text-sm font-medium">
+              <label htmlFor="passengers-input" className="block text-sm font-medium">
                 Total number of Passengers
               </label>
               <input
                 min={1}
                 max={10}
                 type="number"
-                id="number"
+                id="passengers-input"
                 name="passengers"
                 className="w-full mt-1 p-2 border rounded-md "
                 placeholder="We are total "
@@ -197,7 +212,7 @@ const Component = ({ closePopup }) => {
             </div>
 
             <div className="mb-4">
-              <input type="checkbox" id="number" name="privacy_policy_checked" required />{" "}
+              <input type="checkbox" id="privacypolicy-checkbox" name="privacy_policy_checked" required />{" "}
               I accecpt the{" "}
               <span className="text-[#d4A10F]">
                 {" "}

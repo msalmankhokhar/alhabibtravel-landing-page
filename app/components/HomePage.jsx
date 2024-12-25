@@ -80,11 +80,11 @@ function HomePage() {
       <Footer />
 
       {/* Conditionally render the InquiryForm as a popup */}
-      {showPopup && (
+      {/* {showPopup && (
         <div className="fixed inset-0 bg-opacity-50 flex items-center popup-container justify-center z-50">
           <InquiryComponent closePopup={handleFormSubmit} />
         </div>
-      )}
+      )} */}
     </>
   );
 }
