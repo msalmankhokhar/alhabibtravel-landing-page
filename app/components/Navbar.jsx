@@ -14,6 +14,10 @@ function Navbar({ showPopup, setShowPopup }) {
     isToggle(!toggle);
   }
 
+  const handleFormSubmit = () => {
+    setShowPopup(false);
+  };
+
   const onClickedContactButton = () => {
     //router.push("/enquiry-form");
     setShowPopup(true);
@@ -78,7 +82,7 @@ function Navbar({ showPopup, setShowPopup }) {
 
       {showPopup && (
         <div className="fixed inset-0 bg-opacity-50 flex items-center popup-container justify-center z-50">
-          <InquiryComponent />
+          <InquiryComponent closePopup={handleFormSubmit} />
         </div>
       )}
     </>
