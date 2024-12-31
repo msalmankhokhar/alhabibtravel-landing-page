@@ -93,10 +93,10 @@ const Component = ({ closePopup }) => {
       setStatusMessage("Your inquiry has been sent successfully!");
       form.current.reset();
 
-      // setTimeout(() => {
-      //   window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
 
-      // }, 1500);
+      }, 1500);
     } catch (error) {
       setStatusMessage("Your inquiry has been sent...");
       console.log(error);
@@ -213,7 +213,7 @@ const Component = ({ closePopup }) => {
 
             <div className="mb-4">
               <input type="checkbox" id="privacypolicy-checkbox" name="privacy_policy_checked" required />{" "}
-              I accecpt the{" "}
+              I accept the{" "}
               <span className="text-[#d4A10F]">
                 {" "}
                 <a target="_blank" href="https://www.alhabibtravel.co.uk/privacy-policy">
