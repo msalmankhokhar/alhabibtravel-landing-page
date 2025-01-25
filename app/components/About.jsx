@@ -29,7 +29,7 @@ function About() {
         {/* Text Section */}
         <div className="lg:w-1/2   min-h-[30rem]">
           <h3 className="text-lg text-[#D4A10F] mb-2">
-            DISCOVER AL HABIB TRAVEL LTD.
+            {/* DISCOVER AL HABIB TRAVEL LTD. */}
           </h3>
           <h1 className="text-2xl font-bold mb-4">
             Experience <span className="text-[#D4A10F]">comfort</span> and care

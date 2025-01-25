@@ -29,14 +29,18 @@ const carouselData = [
 // Testimonial Component
 function Testimonial() {
   return (
-    <div className="w-[90%] md:w-[70%] mx-auto">
+    <div className=" w-[90%] md:w-[70%] mx-auto">
       {/* Heading */}
-      <div className="text-center text-3xl px-4 font-bold">
-        <h2 className="text-sm my-2 text-[#D4A10F] uppercase tracking-wider animate-bounce">
+      {/* <div className="text-center text-3xl px-4 mt-7 font-bold">
+        <h2 className=" hidden lg:block text-sm my-2 text-[#D4A10F] uppercase tracking-wider animate-bounce">
           TESTIMONIALS
         </h2>
-        What Our <span className="text-[#D4A10F]">Clients</span> Say!
-      </div>
+        <span className="invisible lg:visible  "> What Our </span>
+        <span className="text-[#D4A10F] invisible lg:visible   ">
+          Clients
+        </span>{" "}
+        <p className="invisible lg:visible  ">Say!</p>
+      </div> */}
 
       {/* Grid/Flex Content */}
       <div className="overflow-x-auto ">

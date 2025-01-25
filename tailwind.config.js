@@ -92,6 +92,10 @@ module.exports = {
           "0%": { opacity: "0", transform: "translateY(50px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        handMove: {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(10px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -104,6 +108,7 @@ module.exports = {
         fadeIn: "fadeIn 1s ease-out forwards",
         scaleIn: "scaleIn 0.5s ease-out forwards",
         slideUp: "slideUp 0.5s ease-out forwards",
+        handMove: "handMove 1.5s ease-in-out infinite",
       },
     },
   },

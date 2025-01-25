@@ -5,11 +5,10 @@ import { useState } from "react";
 import Image from "next/image";
 import { MdOutlineContactPhone } from "react-icons/md";
 import InquiryComponent from "./InquiryComponent";
-import { useRouter } from "next/navigation";
+ 
 function Navbar({ showPopup, setShowPopup }) {
   const [toggle, isToggle] = useState(false);
-  const router = useRouter();
-
+  
   function onToggleClick() {
     isToggle(!toggle);
   }
@@ -23,13 +22,11 @@ function Navbar({ showPopup, setShowPopup }) {
     setShowPopup(true);
   };
 
-  const gotoHomePage = () => {
-    router.push("/");
-  };
+  
 
   return (
     <>
-      <nav className="w-full py-1 flex  justify-between relative items-center bg-slate-100 bg-gradient-to-  from-[#0c091d] via-[#0e5243] to-[#093833]  shadow-xl  px-10 md:px-32">
+      <nav className="w-full py-1 flex  justify-between relative items-center bg-slate-100 bg-gradient-to-  from-[#0c091d] via-[#0e5243] to-[#093833]  shadow-lg  px-10 md:px-32">
         {/* Toggle Buttons */}
         <div className="md:hidden ">
           {toggle ? (
@@ -60,13 +57,12 @@ function Navbar({ showPopup, setShowPopup }) {
             className="object-contain"
           /> */}
           <Image
-              src="/logo.webp"
-              alt="Logo"
-              width={64}
-              height={64}
-              className="mx-auto my-2"
-            />
-
+            src="/logo.webp"
+            alt="Logo"
+            width={64}
+            height={64}
+            className="mx-auto my-2"
+          />
         </div>
 
         {/* Contact Button for Larger Screens */}

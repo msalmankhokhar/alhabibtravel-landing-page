@@ -1,37 +1,8 @@
 export const months = [
-  {
-    name: "Jan-2025",
-    days: ["7-days", "10-days", "14-days"],
-    images: {
-      "7-days": {
-        images: [
-          "/Desktop-Cards/jan-desk/3star/7.jpg",
-          "/Desktop-Cards/jan-desk/4star/7.jpg",
-          "/Desktop-Cards/jan-desk/5star/7.jpg",
-        ],
-        prices: ["£785", "£860", "£945"],
-      },
-      "10-days": {
-        images: [
-          "/Desktop-Cards/jan-desk/3star/10.jpg",
-          "/Desktop-Cards/jan-desk/4star/10.jpg",
-          "/Desktop-Cards/jan-desk/5star/10.jpg",
-        ],
-        prices: ["£835", "£915", "£1025"],
-      },
-      "14-days": {
-        images: [
-          "/Desktop-Cards/jan-desk/3star/14.jpg",
-          "/Desktop-Cards/jan-desk/4star/14.jpg",
-          "/Desktop-Cards/jan-desk/5star/14.jpg",
-        ],
-        prices: ["£945", "£1015", "£1135"],
-      },
-    },
-  },
+ 
 
   {
-    name: "Feb-2025",
+    name: "Febraury",
     days: ["7-days", "10-days", "14-days"],
     images: {
       "7-days": {
@@ -62,7 +33,7 @@ export const months = [
   },
 
   {
-    name: "Ramadan-2025",
+    name: "March",
     days: ["7-days", "10-days", "14-days"],
     images: {
       "7-days": {
@@ -93,7 +64,38 @@ export const months = [
   },
 
   {
-    name: "May-2025",
+    name: "April",
+    days: ["7-days", "10-days", "14-days"],
+    images: {
+      "7-days": {
+        images: [
+          "/Desktop-Cards/apr-desk/3star/7.jpg",
+          "/Desktop-Cards/apr-desk/4star/7.jpg",
+          "/Desktop-Cards/apr-desk/5star/7.jpg",
+        ],
+        prices: ["£775", "£850", "£935"],
+      },
+      "10-days": {
+        images: [
+          "/Desktop-Cards/apr-desk/3star/10.jpg",
+          "/Desktop-Cards/apr-desk/4star/10.jpg",
+          "/Desktop-Cards/apr-desk/5star/10.jpg",
+        ],
+        prices: ["£925", "£910", "£1015"],
+      },
+      "14-days": {
+        images: [
+          "/Desktop-Cards/apr-desk/3star/14.jpg",
+          "/Desktop-Cards/apr-desk/4star/14.jpg",
+          "/Desktop-Cards/apr-desk/5star/14.jpg",
+        ],
+        prices: ["£930", "£1005", "£1125"],
+      },
+    },
+  },
+
+  {
+    name: "July",
     days: ["7-days", "10-days", "14-days"],
     images: {
       "7-days": {
@@ -124,32 +126,32 @@ export const months = [
   },
 
   {
-    name: "Apr-2025",
+    name: "August",
     days: ["7-days", "10-days", "14-days"],
     images: {
       "7-days": {
         images: [
-          "/Desktop-Cards/apr-desk/3star/7.jpg",
-          "/Desktop-Cards/apr-desk/4star/7.jpg",
-          "/Desktop-Cards/apr-desk/5star/7.jpg",
+          "/Desktop-Cards/jan-desk/3star/7.jpg",
+          "/Desktop-Cards/jan-desk/4star/7.jpg",
+          "/Desktop-Cards/jan-desk/5star/7.jpg",
         ],
-        prices: ["£775", "£850", "£935"],
+        prices: ["£785", "£860", "£945"],
       },
       "10-days": {
         images: [
-          "/Desktop-Cards/apr-desk/3star/10.jpg",
-          "/Desktop-Cards/apr-desk/4star/10.jpg",
-          "/Desktop-Cards/apr-desk/5star/10.jpg",
+          "/Desktop-Cards/jan-desk/3star/10.jpg",
+          "/Desktop-Cards/jan-desk/4star/10.jpg",
+          "/Desktop-Cards/jan-desk/5star/10.jpg",
         ],
-        prices: ["£925", "£910", "£1015"],
+        prices: ["£835", "£915", "£1025"],
       },
       "14-days": {
         images: [
-          "/Desktop-Cards/apr-desk/3star/14.jpg",
-          "/Desktop-Cards/apr-desk/4star/14.jpg",
-          "/Desktop-Cards/apr-desk/5star/14.jpg",
+          "/Desktop-Cards/jan-desk/3star/14.jpg",
+          "/Desktop-Cards/jan-desk/4star/14.jpg",
+          "/Desktop-Cards/jan-desk/5star/14.jpg",
         ],
-        prices: ["£930", "£1005", "£1125"],
+        prices: ["£945", "£1015", "£1135"],
       },
     },
   },

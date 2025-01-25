@@ -54,13 +54,13 @@ function HomePage() {
 
   return (
     <>
-      <FloatingWhatsApp 
-      phoneNumber="+44203 504 2344"
-      accountName="Al Habib Travel"
-      avatar="/img/logos/favicon.png"
-      buttonStyle={{width: '45px', height: '45px'}}
-      statusMessage="Typically replies within 1 minute"
-    />
+      <FloatingWhatsApp
+        phoneNumber="+44203 504 2344"
+        accountName="Al Habib Travel"
+        avatar="/img/logos/favicon.png"
+        buttonStyle={{ width: "45px", height: "45px" }}
+        statusMessage="Typically replies within 1 minute"
+      />
       <div className="fixed top-0 z-10 w-full">
         <Navbar showPopup={showPopup} setShowPopup={setShowPopup} />
       </div>
@@ -74,8 +74,9 @@ function HomePage() {
 
       <TravelDetails />
       <About />
-      <Testimonial />
+
       <VideoTestimonial />
+      <Testimonial />
       <Faqs />
       <Footer />
 
