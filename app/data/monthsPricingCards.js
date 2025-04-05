@@ -2,7 +2,7 @@ export const months = [
  
 
   {
-    name: "Febraury",
+    name: "July",
     days: ["7-days", "10-days", "14-days"],
     images: {
       "7-days": {
@@ -33,7 +33,7 @@ export const months = [
   },
 
   {
-    name: "March",
+    name: "August",
     days: ["7-days", "10-days", "14-days"],
     images: {
       "7-days": {
@@ -64,7 +64,7 @@ export const months = [
   },
 
   {
-    name: "April",
+    name: "September",
     days: ["7-days", "10-days", "14-days"],
     images: {
       "7-days": {
@@ -95,7 +95,7 @@ export const months = [
   },
 
   {
-    name: "July",
+    name: "October",
     days: ["7-days", "10-days", "14-days"],
     images: {
       "7-days": {
@@ -126,7 +126,7 @@ export const months = [
   },
 
   {
-    name: "August",
+    name: "November",
     days: ["7-days", "10-days", "14-days"],
     images: {
       "7-days": {
