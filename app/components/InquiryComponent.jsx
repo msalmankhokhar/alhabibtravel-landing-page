@@ -81,7 +81,7 @@ const Component = ({ closePopup }) => {
 
       // sending request to backend using fetch
       // await fetch('http://localhost/api/landing_form', {
-      await fetch('http://localhost:5500/api/v1/mail/landing_page_form', {
+      await fetch('http://backend.alhabibtravel.co.uk/api/v1/mail/landing_page_form', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
